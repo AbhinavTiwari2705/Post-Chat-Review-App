@@ -1,0 +1,28 @@
+{% extends 'BlogSite/base.html' %}
+
+{% block content %}
+
+
+
+
+<!-- 
+{% for article in articles %}
+<a> {{article.feeder}} </a> 
+{% endfor %}
+ -->
+
+
+{% if post39 %}
+<h3>Results : </h3>
+<br>
+
+{% for i in post39 %}
+<h2><a href="{% url 'article_overview'  %}">{{ i.title }} : {{ i.snippet }}</a></h2>     <!-- {{ i.slug }} -->
+{% endfor %}
+
+{% else %}
+<h4>Search not Found</h4>
+{% endif %}
+
+
+{% endblock %}

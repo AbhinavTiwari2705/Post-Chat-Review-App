@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/blogbase_css.css' %}">
+  <!-- CSS only -->
+  
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
+  <title></title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark " style="height:55px; background:rgb(49, 47, 47);">
+    <a class="navbar-brand" href="#" style="margin-left:20px">Some name</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blog_index' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Filtered Posts
+          </a>
+
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background:rgb(143, 129, 113) ;width: 1200px;">
+
+            <!-- <div class="jumbotron" style="background: blue; width: 1280px;"> -->
+
+              <div class="row">
+
+
+
+                <!--   Making Row for two columns    -->
+
+                <!-- First column -->
+
+                <div class="col-lg-6">
+
+
+                  <!--      First container        -->
+
+
+                  <div class="container">
+                    <div class='jumbotron' style="margin: 10px 0px 10px 0px; background-color:rgb(34, 27, 27)">
+                      <div class="row" style="margin: -45px 20px -40px 20px">
+                        <div class="col-md-4">
+                          <span class="text-white">
+                            <h4 style="margin-top:25px; margin-bottom:25px">The_Climate_Crisis</h4>
+                          </span>
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">3 Rs</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Solution</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Impact</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-md-4" style="margin-top:80px">
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">New ideas</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Rage</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Politics</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-md-4" style="margin-top:100px; padding-left:60px">
+                          <a href="">
+                            <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt=""
+                              class="img-fluid">
+                          </a>
+                          <p class="text-white">a</p>
+
+                        </div>
+                        <!-- /.col-md-4  -->
+                      </div>
+                    </div> <!-- End of First jumbotron  -->
+
+                  </div> <!-- End of First Container-->
+
+
+                  <!--      Second container        -->
+
+                  <div class="container">
+
+                    <div class='jumbotron' style="margin: 10px 0px 10px 0px; background-color:rgb(34, 27, 27)">
+                      <div class="row" style="margin: -45px 20px -40px 20px">
+                        <div class="col-md-4">
+                          <span class="text-white">
+                            <h4 style="margin-top:25px; margin-bottom:25px">Programming</h4>
+                          </span>
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Competitive c</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Python</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">C++</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-md-4" style="margin-top:80px">
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Machine l</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Deep learning</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Reinforcement learning</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-md-4" style="margin-top:100px; left:30px">
+                          <a href="">
+                            <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                          </a>
+                          <p class="text-white">a</p>
+
+                        </div>
+                        <!-- /.col-md-4  -->
+                      </div>
+
+                    </div> <!--  End of Second Jumbotron  -->
+
+
+                  </div> <!--  End of Second container  -->
+
+
+
+                </div> <!--  Ending of First column   -->
+
+
+
+                <!-- Second column -->
+
+                <div class="col-lg-6">
+
+
+                  <!--      Third container        -->
+
+
+
+                  <div class="container">
+                    <div class='jumbotron' style="margin: 10px 0px 10px 0px; background-color:rgb(34, 27, 27)">
+                      <div class="row" style="margin: -45px 20px -40px 20px">
+                        <div class="col-md-4">
+                          <span class="text-white">
+                            <h4 style="margin-top:25px; margin-bottom:25px">Food</h4>
+                          </span>
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Recipes</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Drinks</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Diet</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-md-4" style="margin-top:80px">
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Home-made</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Street-food</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Fruits/Veggies</a>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div class="col-md-4" style="margin-top:100px; padding-left:60px">
+                          <a href="">
+                            <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                          </a>
+                          <p class="text-white">a</p>
+
+                        </div>
+
+                      </div>
+                    </div> <!--   End of Third Jumbotron    -->
+
+                  </div> <!--   End of Third Jumbotron    -->
+
+
+                  <!--      Fourth container        -->
+
+
+                  <div class="container">
+                    <div class='jumbotron' style="margin: 10px 0px 0px 0px; background-color:rgb(34, 27, 27)">
+                      <div class="row" style="margin: -45px 20px -40px 20px">
+                        <div class="col-md-4">
+                          <span class="text-white">
+                            <h4 style="margin-top:25px; margin-bottom:25px">Movies/WebSeries</h4>
+                          </span>
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Sci-fi</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Horror</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Comedy</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-md-4" style="margin-top:80px">
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Action</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Romance</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Mystery</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-md-4" style="margin-top:100px; padding-left:60px">
+                          <a href="">
+                            <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                          </a>
+                          <p class="text-white">a</p>
+
+                        </div>
+                        <!-- /.col-md-4  -->
+                      </div>
+                    </div> <!--   End of Fourth Jumbotron    -->
+
+                  </div> <!--    End of Fourth container     -->
+
+                </div> <!--    Ending of Second column    -->
+
+
+
+
+
+              </div> <!--    Row     -->
+
+            <!--</div>     Jumbotron   -->
+
+          </div>
+          <!--dropdown-menu-->
+        </li>
+
+
+
+
+
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Search
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background:rgb(143, 129, 113);">
+            <div class="container" >
+              <form class="form-inline my-2 my-lg-0" method="GET">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searchq">
+                <br><br>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background:cadetblue" value="Search">Search</button>
+              </form>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'post_new' %}">Write</a>
+        </li>
+
+      </ul>
+
+      <a href="#" style="margin-right:30px; text-decoration: none; color:white">Login/Register</a>
+
+
+
+
+
+
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+    {% block content %}
+    {% endblock %}
+
+
+
+
+
+
+
+
+</body>
+
+</html>
