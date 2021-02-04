@@ -6,6 +6,9 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic import ListView
+from django.db.models import Q
+
 # Create your views here.
 
 def blog_index(request):
@@ -28,7 +31,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'BlogSite/post_edit.html', {'form': form})
+    return render(request, 'BlogSite/post_create.html', {'form': form})
 
 
 
@@ -63,45 +66,26 @@ def comment_remove(request, pk):
 
 
 
+class SearchResultsListView(ListView):
+    model = Post
+    context_object_name = 'blog_list_query'
+    template_name = 'BlogSite/filtered_posts.html'
+
+    def get_queryset(self): 
+        query = self.request.GET.get('searchq')               ## 'name' from searchbar input tag
+
+        return Post.objects.filter(
+            Q(title__icontains=query) | Q(author__icontains=query) | Q(Category__icontains=query)
+        )
+
+
 # def article_overview(request):
-#     search_term = ''
+#     if request.method == 'GET':
+#         search = request.GET.get('searchq')
+#         post39 = Post.objects.all().filter(title=search)
 
-#     if 'search' in request.GET:
-#         search_term = request.GET['search']
-#         articles = Post.objects.all().filter(title__icontains=search_term) 
-
-#     # articles = Post.objects.all()
-
-#     return render(request, 'BlogSite/overview.html', {'articles' : articles, 'search_term': search_term })    
-
-
-
-def article_overview(request):
-    if request.method == 'GET':
-        search = request.GET.get('searchq')
-        post39 = Post.objects.all().filter(title=search)
-
-        return redirect('article_overview', post39='post39')
+#         return redirect('article_overview', post39='post39')
         
-        # return render(request, 'BlogSite/article_overview.html', {'post39':post39})
-    else:
-        return HttpResponse(request, "Hey Not found Anything!!")
-
-
-
-
-
-# class SearchView(ListView):
-# model = Article
-# template_name = 'search.html'
-# context_object_name = 'all_search_results'
-
-# def get_queryset(self):
-#     result = super(SearchView, self).get_queryset()
-#     query = self.request.GET.get('search')
-#     if query:
-#         postresult = Article.objects.filter(title__contains=query)
-#         result = postresult
+#         # return render(request, 'BlogSite/article_overview.html', {'post39':post39})
 #     else:
-#         result = None
-#     return result
+#         return HttpResponse(request, "Hey Not found Anything!!")

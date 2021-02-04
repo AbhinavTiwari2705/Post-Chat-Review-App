@@ -11,12 +11,16 @@
             <div class="col-md-10">
                 {% for post in posts %}
                 <br>
-                <div class="jumbotron">
+                <div class="jumbotron" style="background: rgb(230, 225, 221); border-radius: 30px; padding: 60px;">
                 <br>
                     <div class="post">
                         <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
                         <h4>On {{ post.Category }}</h4>
                         <br>
+                        
+                        
+                        <!-- <p><a href="#abc">Clickjack</a></p> -->
+
 
                         <img src="media/{{ post.image }}" alt="" style="width: 50%; display: block; margin-left: auto; margin-right: auto; ">
 
@@ -31,6 +35,21 @@
                     </div>
                 </div>
                 {% endfor %}
+
+
+    <!-- <p id="abc">jhsrghbl abfg igq giuqergh iuqrfg iu </p> -->
+    <div style="position: hidden; margin-left: 1200px ;">
+        <button style="background: black; outline: none; ">
+            <a href="#top">
+                <i class="fas fa-angle-double-up" style="color: white; font-size: 25px;"></i>
+            </a>
+        </button>
+    </div>
+    <br>
+    <br>
+
+    
+
             </div>
         </div>
     </div>

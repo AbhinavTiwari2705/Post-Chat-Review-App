@@ -37,8 +37,31 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'BlogSite',
+    'django.contrib.sites',
+
+
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+
+
+    # 'BlogSite.apps.BlogSiteConfig',                      ## Cannot write this way
+    'BlogSite.apps.BlogsiteConfig',
+    'authentication.apps.AuthenticationConfig',
+
+
+
 ]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -73,15 +96,15 @@ WSGI_APPLICATION = 'Reddit_type_blog_App.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+    
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
 
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : 'BlogSample1',
-        'USER' : 'postgres',
+        'NAME' : 'BlogSample1',                                  ## db name
+        'USER' : 'postgres', 
         'PASSWORD' : 'ManishPort',
         'HOST' : 'localhost',
     }
@@ -125,9 +148,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
 
 
 # Base url to serve media files
@@ -135,3 +161,11 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+LOGIN_REDIRECT_URL = 'blog_index'
+LOGOUT_REDIRECT_URL = 'blog_index'
+ACCOUNT_LOGOUT_REDIRECT = 'blog_index'
+
+ACCOUNT_SESSION_REMEMBER = False 

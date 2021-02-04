@@ -1,0 +1,23 @@
+{% extends 'BlogSite/base.html' %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container">
+
+            <h2 style="text-decoration: underline; margin-bottom: 50px; margin-left: -250px;">Search Results:</h2>
+            {% for post in blog_list_query %}
+                <div>
+                <h3> <i class="fas fa-angle-double-right"></i>    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                <!-- <p>Author: {{ book.author }}</p>
+                <p>Price: $ {{ book.price }}</p> -->
+                </div>
+            {% endfor %}
+        
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

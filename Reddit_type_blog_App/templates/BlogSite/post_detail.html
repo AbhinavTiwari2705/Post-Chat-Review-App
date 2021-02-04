@@ -2,8 +2,14 @@
 
 {% block content %}
 
-<div class="jumbotron">
-    <div class="container">
+<style>
+    body{
+        background:rgb(22, 21, 21);
+    }
+</style>
+
+<div class="jumbotron" style="background: rgb(22, 21, 21); border-radius: 0; margin-bottom: 0;"> 
+    <div class="container" style="background: rgb(230, 225, 221); border-radius: 30px; padding: 60px;">
         <div class="post">
             {% if post.published_date %}
             <div class="date">
@@ -14,6 +20,7 @@
 
             <img src="/media/{{ post.image }}" alt=""
                 style="width: 50%; display: block; margin-left: auto; margin-right: auto; ">
+            <!-- <p>{{ post.image }}</p>               THis prints out "user/2021/02/03/inception-michael-leo-1534351024.jpg"    -->
             <p>{{ post.text| linebreaks }}</p>
         </div>
 

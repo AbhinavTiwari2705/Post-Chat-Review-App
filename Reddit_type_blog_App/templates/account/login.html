@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        @media screen 
+        and (min-device-width: 601px) 
+        and (max-device-width: 2600px) {
+
+
+        body{
+            background-color: rgb(19, 18, 18);
+        }
+        .form-container{
+            text-align: center;
+        }
+        .headsup{
+            margin-top: 150px;
+            margin-bottom: 50px;
+            color: aliceblue;
+            font-size: 10px;
+        }
+        .heading_get{
+            font-size: 50px;
+        }
+        .inside{
+            margin: 10px;
+        }
+        .input_box{
+            height: 40px;
+            width: 400px;
+            outline: none;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .message_box{
+            height: 300px;
+        }
+
+        .button{
+            border-radius: 10px;
+            height: 45px;
+            width: 100px;
+            font-size: 16px;
+            margin-bottom: 40px;
+            outline: none;
+        }
+        p{
+            color: rgb(126, 37, 228);
+            margin: 2px;
+        }
+        .register{
+            font-family:'Courier New', Courier;
+            text-decoration: underline;
+        }
+        .img-main{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+        }
+
+        .img{
+            height: 30px;
+            border-radius: 15px;
+            margin: 4px;
+        }
+        .imgaa{
+            /* display: block; */
+            justify-content: center;
+            /* margin-left: auto;
+            margin-right: auto; */
+        }
+    }
+
+
+
+
+
+
+    @media (max-width: 600px) {
+
+
+
+        body{
+            background-color: rgb(19, 18, 18);
+            overflow-x: hidden;
+        }
+        .form-container{
+            text-align: center;
+        }
+        .headsup{
+            margin-top: 70px;
+            color: aliceblue;
+            margin-top: 150px;
+        }
+        .inside{
+            margin: 10px;
+        }
+        .input_box{
+            height: 35px;
+            width: 250px;
+            outline: none;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .message_box{
+            height: 300px;
+        }
+
+        .button{
+            border-radius: 6px;
+            height: 35px;
+            width: 60px;
+            margin-bottom: 30px;
+            outline: none;
+        }
+        p{
+            color: rgb(126, 37, 228);
+            margin: 2px;
+        }
+        .register{
+            font-family:'Courier New', Courier;
+            text-decoration: underline;
+            margin-bottom: 30px;
+        }
+        .img-main{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+        }
+
+        .img{
+            height: 30px;
+            border-radius: 15px;
+            margin: 4px;
+        }
+        .imgaa{
+            /* display: block; */
+            justify-content: center;
+            /* margin-left: auto;
+            margin-right: auto; */
+        }
+    }
+
+
+
+
+        
+    </style>
+
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-container"> 
+            <div class="headsup">
+                <h1 class="heading_get">SignIn</h1><br>
+            </div>
+            {{form}}
+            
+        
+              
+          
+            <div class="inside y_email"> 
+                <label for="y_email"></label>
+                <input class="input_box" type="email" name="y_email" id="y_email" placeholder="Email"><br>
+            
+            </div>
+
+            <div class="inside y_password">
+                <label for="y_password"></label>
+                <input class="input_box" type="password" name="y_password" id="y_password" placeholder="Password" value="{{form.password}}"><br>    
+                <!-- <input class="input_box" type="text" name="y_name" id="y_name" placeholder="Name"> -->
+              </div>
+            
+
+    
+            <button class="button" type="submit">Send</button>
+            <br>
+
+            <!-- Social media login -->
+
+            <div class="img-main">
+                <div class="imgaa">
+                    <img src="{% static 'images/registration/google.png' %}" alt="kjshdg" class="img google">
+                </div>
+                <div class="imgaa">
+                    <img src="{% static 'images/registration/Facebook.png' %}" alt="" class="img facebook"> 
+                </div>
+                <div class="imgaa">
+                    <img src="{% static 'images/registration/GitHub.png' %}" alt="" class="img github">
+                </div>
+            </div>
+
+            
+            <br>
+            <p>Haven't Registered yet? </p>
+            <a href=""><p class="register">Register here</p></a>
+                
+        </div>
+    </form>
+    
+</body>
+</html>
