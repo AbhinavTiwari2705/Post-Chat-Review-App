@@ -99,14 +99,14 @@ WSGI_APPLICATION = 'Reddit_type_blog_App.wsgi.application'
     
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
 
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : 'BlogSample1',                                  ## db name
-        'USER' : 'postgres', 
-        'PASSWORD' : 'ManishPort',
-        'HOST' : 'localhost',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME' : 'BlogSite1',                                  ## db name
+        # 'USER' : 'postgres', 
+        # 'PASSWORD' : 'ManishPort',
+        # 'HOST' : 'localhost',
     }
 }
 

@@ -1,0 +1,21 @@
+
+{% extends 'BlogSite/base.html' %}
+
+
+{% block content %}
+
+
+
+<a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

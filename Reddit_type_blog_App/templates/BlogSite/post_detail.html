@@ -53,31 +53,49 @@
 <br>
 <br>
 
-<div class="jumbotron" style="background:rgb(136, 180, 182);">
-{% for comment in post.comments.all %}
-    {% if user.is_authenticated or comment.approved_comment %}
-    <div class="comment">
-        <div class="date">
-            
-            {% if not comment.approved_comment %}
-                <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
-            {% endif %}
+
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
         </div>
-        <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
-        <p style="font-size: small;">{{ comment.created_date }}</p>
+    {% endfor %}
+
+
+
+<div class="jumbotron" style="background:rgb(136, 180, 182);">
+    {% for comment in post.comments.all %}
+        {% comment %} {% if user.is_authenticated or comment.approved_comment %} {% endcomment %}
+        <div class="comment">
+            {% comment %} <div class="date">
+                
+                {% if not comment.approved_comment %}
+                    <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                {% endif %}
+            </div> {% endcomment %}
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+            <p style="font-size: small;">{{ comment.created_date }}</p>
+        </div>
+        <hr>
+        {% comment %} {% endif %} {% endcomment %}
+    {% empty %}
+        <p>No comments here yet :(</p>
+        
+    {% endfor %}
     </div>
-    <hr>
-    {% endif %}
-{% empty %}
-    <p>No comments here yet :(</p>
     
-{% endfor %}
-</div>
+
 
 </div>
 </div>
+
+
 
 
 

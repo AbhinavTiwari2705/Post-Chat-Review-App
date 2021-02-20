@@ -1,12 +1,14 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.urls.base import reverse
 from .models import Post, Comment
 from django.utils import timezone
 from .forms import PostForm, CommentForm
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.db.models import Q
 
 # Create your views here.
@@ -36,34 +38,6 @@ def post_new(request):
 
 
 
-def add_comment_to_post(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = CommentForm()
-    return render(request, 'BlogSite/add_comment_to_post.html', {'form': form})
-
-
-
-@login_required
-def comment_approve(request, pk):
-    comment = get_object_or_404(Comment, pk=pk)
-    comment.approve()
-    return redirect('post_detail', pk=comment.post.pk)
-
-@login_required
-def comment_remove(request, pk):
-    comment = get_object_or_404(Comment, pk=pk)
-    comment.delete()
-    return redirect('post_detail', pk=comment.post.pk)
-
-
 
 
 class SearchResultsListView(ListView):
@@ -79,13 +53,47 @@ class SearchResultsListView(ListView):
         )
 
 
-# def article_overview(request):
-#     if request.method == 'GET':
-#         search = request.GET.get('searchq')
-#         post39 = Post.objects.all().filter(title=search)
 
-#         return redirect('article_overview', post39='post39')
-        
-#         # return render(request, 'BlogSite/article_overview.html', {'post39':post39})
+
+
+
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'BlogSite/add_comment_to_post.html', {'form': form})
+
+
+
+# @login_required
+def comment_approve(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.approve()
+    return redirect('post_detail', pk=comment.post.temp_id)
+
+# @login_required
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('post_detail', pk=comment.post.temp_id)
+
+
+
+
+
+# def PostLike(DetailView):
+#     post = get_object_or_404(Post, id = request.POST.get('blogpost_id'))
+#     if post.likes.filter(temp_id=request.user.id).exist():
+#         post.likes.remove(request.user)
 #     else:
-#         return HttpResponse(request, "Hey Not found Anything!!")
+#         post.likes.add(request.user)
+
+#     return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))

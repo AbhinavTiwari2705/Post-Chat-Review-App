@@ -55,7 +55,16 @@
 
       </ul>
 
-      <a href="#" style="margin-right:30px; text-decoration: none; color:white">Login/Register</a>
+      {% if user.is_authenticated %}
+
+        <a href="#" style="margin-right:30px; text-decoration: none; color:white">Logout</a>
+
+      {% else %}
+        
+        {% comment %} <a href="#" style="margin-right:30px; text-decoration: none; color:white">Login</a> {% endcomment %}
+
+      {% endif %}
+
 
 
 
